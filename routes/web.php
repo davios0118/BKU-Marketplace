@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\ChackAdmin;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +21,6 @@ Route::get('/', function () {
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');;
-Route::get('/usuarios', 'UserController@show')->name('usuarios.show')->middleware('verified');;
+Route::get('/usuarios', 'UserController@show')->name('usuarios.show')->middleware('verified', ChackAdmin::class);;
 Route::get('/editar/{Id}', 'UserController@editar')->name('editar')->middleware('verified');;
 Route::patch('/actualizar/{Id}', 'UserController@actualizar')->name('actualizar')->middleware('verified');;

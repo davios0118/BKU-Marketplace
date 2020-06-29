@@ -18,8 +18,19 @@
                 <td scope="row">{{$usuario->id}} </td>
                 <td scope="row">{{$usuario->name}} </td>
                 <td scope="row">{{$usuario->email}} </td>
-                <td scope="row">{{$usuario->Tipo}} </td>
+                <td scope="row">@if ($usuario->isAdmin)Administrador
 
+
+                    @else Cliente
+
+                    @endif</td>
+                <td scope="row">@if ($usuario->isOn)Activo
+
+                    @else Inactivo
+
+
+
+                    @endif</td>
                 <td><a href="{{route('editar',$usuario)}}">Editar</a></td>
             </tr>
             @endforeach

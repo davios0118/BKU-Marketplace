@@ -41,11 +41,15 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('usuarios.show') }}">{{ __('Usuarios') }}</a>
-                            </li>
-                        </ul>
+                        @auth
+                        @if (Auth::user()->isAdmin)
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('usuarios.show') }}">Usuarios</a>
+                        </li>
+                        @endif
+
+                        @endauth
+
                         @guest
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>

@@ -7,6 +7,7 @@
         <div class="form-group">
             <label for="exampleInputName">Nombre</label>
             <input name="nombre" type="texto" class="form-control" id="exampleInputName" value="{{ $usuario->name}}">
+
         </div>
         <div class="form-group form-check">
             <input name="isOn" type="checkbox" class="form-check-input" id="exampleCheck1" @if ($usuario->isOn) checked
